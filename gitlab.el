@@ -66,6 +66,7 @@
 (require 'gitlab-issues)
 (require 'gitlab-mode)
 (require 'gitlab-users)
+(require 'gitlab-commits)
 
 (provide 'gitlab)
 ;;; gitlab.el ends here
