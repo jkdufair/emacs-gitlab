@@ -53,5 +53,17 @@
    nil
    200))
 
+(defun gitlab-create-commit-comment (project-id sha note)
+  "Post a new commit-level NOTE on SHA in project PROJECT-ID."
+  (perform-gitlab-request
+   "POST"
+   (s-concat "projects/"
+             (number-to-string project-id)
+             "/repository/commits/"
+             sha
+             "/comments")
+   `(("note". ,note))
+   201))
+
 (provide 'gitlab-commits)
 ;;; gitlab-commits.el ends here
