@@ -49,8 +49,9 @@
 											 (string= project-name (cdr (assoc 'name it)))
 											 possible-projects-list))
 						 (project-id (cdr (assoc 'id (car project)))))
-					(setq projectile-gitlab-project-cache
-								(cons (cons project-name project-id) projectile-gitlab-project-cache))))))
+          (or (equal nil project-id)
+              (setq projectile-gitlab-project-cache
+                    (cons (cons project-name project-id) projectile-gitlab-project-cache)))))))
 
 (provide 'projectile-gitlab)
 ;;; projectile-gitlab.el ends here
